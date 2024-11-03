@@ -1,0 +1,59 @@
+# Go build artifacts
+/bin/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Generated files
+coverage.out
+
+# Binaries
+golang-clean-architecture
+
+# Configuration files
+.env
+.env.local
+.env.*.local
+.env.dev
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Logs
+*.log
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Vendor directory (if not using vendoring)
+vendor/
+
+# Node modules (if applicable)
+node_modules/
+
+# Other archives and compressed files
+*.tar
+*.gz
+*.zip
+
+# Exclude Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Exclude documentation and markdown files
+README.md
+CHANGELOG.md
