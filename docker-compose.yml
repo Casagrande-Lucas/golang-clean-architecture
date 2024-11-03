@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      - db_mysql
     env_file:
       - .env
     environment:
@@ -16,17 +16,30 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - JWT_ISSUER=${JWT_ISSUER}
 
-  db:
-    image: mysql:8.0
+  db_mysql:
+    image: mysql:9.0
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: database_name
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - db_mysql_data:/var/lib/mysql
+
+#  db_postgres:
+#    image: postgres:14
+#    environment:
+#      POSTGRES_USER: ${POSTGRES_USER}
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+#      POSTGRES_DB: ${POSTGRES_DATABASE}
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - db_postgres_data:/var/lib/postgresql/data
+
 
 volumes:
-  db_data:
+  db_mysql_data:
+#  db_postgres_data:
